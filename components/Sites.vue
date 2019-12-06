@@ -38,10 +38,27 @@ export default {
       return new Set(this.records.map(record => record.id))
     },
     averageCount() {
+        // "records": [
+        //     { "am": 1, "pm": 10, "id": "a" },
+        //     { "am": 2, "pm": 4, "id": "b" },
+        //     { "am": 3, "pm": 12, "id": "a" },
+        //     { "am": 1, "pm": 7, "id": "b" }
+        // ]
+
+      // const counts = []
+      // this.records.forEach(record => {
+      //     counts.push(record.am, record.pm);
+      // });
       const counts = this.records.flatMap(record => [record.am, record.pm])
       return average(counts)
     },
     filteredAverageCount() {
+      // const counts = []
+      // this.records.forEach(record => {
+      //   if (this.id === record.id) {
+      //     counts.push(record.am, record.pm)
+      //   }
+      // });
       const counts = this.records.flatMap(record => {
         return this.id === record.id ? [record.am, record.pm] : []
       })

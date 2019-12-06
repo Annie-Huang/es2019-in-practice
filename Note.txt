@@ -1,5 +1,8 @@
 https://egghead.io/courses/javascript-es2019-in-practice
 
+I am getting "this.records.flatMap is not a function" on Sites.vue:45:
+But Chrome 78 is already supporting flatmap according to caniuse.
+Not sure why 'npm run dev' not working...
 
 
 
@@ -18,3 +21,31 @@ function parseRecords(maybeJSON) {
 
 and catch doesn't have to put a (e) if you don't use error in your body.
 
+Chapter 4: Flatten an Array
+=========================================
+In Scores.vue, line 58
+  const avg = average(record.scores.flat(2))
+
+
+
+Chapter 5: Trim the End of a String
+=========================================
+In Scores.vue, line 63
+
+    teachers: record.teachers
+      .split(',')
+      .map(teacher => teacher.trimEnd())
+      .join(','),
+
+
+Chapter 6: FlatMap array.
+=========================================
+In Sites.vue, line 40, and 56
+
+      // const counts = []
+      // this.records.forEach(record => {
+      //     counts.push(record.am, record.pm);
+      // });
+      const counts = this.records.flatMap(record => [record.am, record.pm])
+
+FlatMap, just flatmap one level.
