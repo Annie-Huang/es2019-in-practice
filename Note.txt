@@ -1,5 +1,11 @@
 https://egghead.io/courses/javascript-es2019-in-practice
 
+Most of the functions does not work with my Chrome 78.
+Not sure why...
+After I reverse flatmap to the original version and then I got problem wtih flat.
+This tells me there is either a problem with this repo, or there is problem with my chrome in window...
+
+
 I am getting "this.records.flatMap is not a function" on Sites.vue:45:
 But Chrome 78 is already supporting flatmap according to caniuse.
 Not sure why 'npm run dev' not working...
@@ -40,7 +46,7 @@ In Scores.vue, line 63
 
 Chapter 6: FlatMap array.
 =========================================
-In Sites.vue, line 40, and 56
+In Sites.vue, line 40
 
       // const counts = []
       // this.records.forEach(record => {
@@ -49,3 +55,19 @@ In Sites.vue, line 40, and 56
       const counts = this.records.flatMap(record => [record.am, record.pm])
 
 FlatMap, just flatmap one level.
+
+
+Chapter 7: FlatMap to Map and Filter an Array
+=========================================
+FlatMap can be used as map + filter together.
+In Sites.vue, line 56
+
+      // const counts = []
+      // this.records.forEach(record => {
+      //   if (this.id === record.id) {
+      //     counts.push(record.am, record.pm)
+      //   }
+      // });
+      const counts = this.records.flatMap(record => {
+        return this.id === record.id ? [record.am, record.pm] : []
+      })
