@@ -59,7 +59,10 @@ function transformRecord(record) {
   const result = {
     student: record.student.trim(),
     average: avg,
-    teachers: record.teachers.split(',').map(teacher => teacher.trimEnd()).join(','),
+    teachers: record.teachers
+      .split(',')
+      .map(teacher => teacher.trimEnd())
+      .join(','),
     grade
   }
 
@@ -78,11 +81,19 @@ export default {
   computed: {
     recordsMap() {
       this.records.map(record => transformRecord(record))
-      return recordMap;
+      return recordMap
     },
     sorted() {
       const mapped = this.records.map(record => transformRecord(record))
-      return mapped.sort((a, b) => a.average - b.average)
+      // mapped.forEach((record, index) => {
+      //   record.index = index;
+      // });
+      return mapped.sort((a, b) => {
+          // if (a.average === b.average) {
+          //     return a.index - b.index;
+          // }
+          return a.average - b.average;
+      })
     },
     json() {
       if (!Object.fromEntries) {
