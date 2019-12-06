@@ -15,15 +15,15 @@ export default {
     Sites
   },
   async asyncData({ error }) {
-    const fs = require('fs')
-    const util = require('util')
-    const readFile = util.promisify(fs.readFile)
+    const fs = require('fs');
+    const util = require('util');
+    const readFile = util.promisify(fs.readFile);
 
     try {
       const [scoresJSON, sitesJSON] = await Promise.all([
         readFile('data/scores.json'),
         readFile('data/sites.json')
-      ])
+      ]);
 
       return {
         scores: parseRecords(scoresJSON),
@@ -39,8 +39,8 @@ function parseRecords(maybeJSON) {
   try {
     return JSON.parse(maybeJSON)
   } catch {
-    console.log('could not parse:' + maybeJSON)
-    throw new Error('unable to parse')
+    console.log('could not parse:' + maybeJSON);
+    throw new Error('unable to parse' + maybeJSON);
   }
 }
 </script>

@@ -1,0 +1,20 @@
+https://egghead.io/courses/javascript-es2019-in-practice
+
+
+
+
+Chapter 2: Optional Catch Bindings
+=========================================
+In In index.vue:
+
+function parseRecords(maybeJSON) {
+  try {
+    return JSON.parse(maybeJSON)
+  } catch {
+    console.log('could not parse:' + maybeJSON);
+    throw new Error('unable to parse' + maybeJSON);
+  }
+}
+
+and catch doesn't have to put a (e) if you don't use error in your body.
+
