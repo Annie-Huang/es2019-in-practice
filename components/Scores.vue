@@ -54,6 +54,7 @@ function transformRecord(record) {
     return recordMap.get(record.id)
   }
 
+  // const avg = average(flat(record.scores, 2))
   const avg = average(record.scores.flat(2))
   const grade = getGrade(avg)
   const result = {
@@ -70,6 +71,24 @@ function transformRecord(record) {
 
   return result
 }
+
+// [97, 93, [93, 97]]
+function flat(arr, depth) {
+    if (!depth) {
+        return arr.slice()
+    }
+    const flatArr = []
+    arr.forEach(value =>  {
+        if (Array.isArray(value)) {
+            flatArr.push(...flat(value, depth - 1))
+        } else {
+            flatArr.push(value)
+        }
+    })
+    return flatArr
+}
+
+
 
 export default {
   props: {
