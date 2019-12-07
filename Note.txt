@@ -58,7 +58,7 @@ FlatMap, just flatmap one level.
 
 
 Chapter 7: FlatMap to Map and Filter an Array
-=========================================
+===============================================
 FlatMap can be used as map + filter together.
 In Sites.vue, line 56
 
@@ -71,3 +71,13 @@ In Sites.vue, line 56
       const counts = this.records.flatMap(record => {
         return this.id === record.id ? [record.am, record.pm] : []
       })
+
+Chapter 8: Symbols: Collision-free String Constants
+===============================================
+In Score.vue, line 40
+
+// console(Symbol('A') === Symbol('A')); // return false;
+// console('A' === 'A'); // return true;
+
+And use description to get the string value;
+grades.a.description

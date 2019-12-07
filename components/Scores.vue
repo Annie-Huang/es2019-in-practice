@@ -37,6 +37,9 @@ const grades = {
   f: Symbol('F')
 }
 
+// console(Symbol('A') === Symbol('A')); // return false;
+// console('A' === 'A'); // return true;
+
 const recordMap = new Map()
 
 function getGrade(average) {
