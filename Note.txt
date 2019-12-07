@@ -1,5 +1,9 @@
 https://egghead.io/courses/javascript-es2019-in-practice
 
+OMG, i cannot believe this, using node version 10 does not work.
+After I ugprade to node version 13, the website works.
+The tutorial said use node version 12 at least...
+
 Most of the functions does not work with my Chrome 78.
 Not sure why...
 After I reverse flatmap to the original version and then I got problem wtih flat.
@@ -81,3 +85,14 @@ In Score.vue, line 40
 
 And use description to get the string value;
 grades.a.description
+
+Chapter 9: Create an Object from a Map or key-value Pairs
+===============================================
+In Score.vue, line 121
+      // const json = {};
+      // for(const [key, val] of this.recordsMap.entries()) {
+      //     json[key] = val;
+      // }
+      // return JSON.stringify(json, null, 2)
+
+      return JSON.stringify(Object.fromEntries(this.recordsMap), null, 2)

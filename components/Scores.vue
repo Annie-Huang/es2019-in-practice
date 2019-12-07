@@ -118,9 +118,19 @@ export default {
       })
     },
     json() {
-      if (!Object.fromEntries) {
-        return 'loading...'
-      }
+      // const json = {};
+      // for(const [key, val] of this.recordsMap.entries()) {
+      //     json[key] = val;
+      // }
+      // return JSON.stringify(json, null, 2)
+
+      // When you use the latest version of node, you don't need to check Object.fromEntries
+      // if (!Object.fromEntries) {
+      //       return 'loading...'
+      //   }
+
+      // [[1, 'a'], [2, 'b']]
+      // {1: 'a', 2: 'b'}
       return JSON.stringify(Object.fromEntries(this.recordsMap), null, 2)
     }
   },
